@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Midnight Masquerade - Ravencroft Castle | Halloween RSVP</title>
+    <meta name="description" content="Join us for the most haunting masquerade ball at Ravencroft Castle!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <div class="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black relative">
+      <!-- Spooky floating elements -->
+      <div class="absolute inset-0 opacity-20 pointer-events-none z-10">
+        <div class="absolute top-10 left-10 text-4xl animate-bounce" style="animation-delay: 0s">🦇</div>
+        <div class="absolute top-20 right-20 text-3xl animate-bounce" style="animation-delay: 0.5s">👻</div>
+        <div class="absolute top-40 left-1/4 text-5xl animate-bounce" style="animation-delay: 1s">🎃</div>
+        <div class="absolute top-60 right-1/3 text-4xl animate-bounce" style="animation-delay: 1.5s">🕷️</div>
+        <div class="absolute bottom-40 left-20 text-3xl animate-bounce" style="animation-delay: 2s">🕸️</div>
+        <div class="absolute bottom-60 right-10 text-4xl animate-bounce" style="animation-delay: 2.5s">🌙</div>
+        <div class="absolute bottom-20 left-1/3 text-5xl animate-bounce" style="animation-delay: 3s">⚰️</div>
+        <div class="absolute top-1/2 left-10 text-3xl animate-bounce" style="animation-delay: 0.2s">🔮</div>
+        <div class="absolute top-1/3 right-5 text-4xl animate-bounce" style="animation-delay: 1.2s">🧙‍♀️</div>
+        <div class="absolute bottom-1/3 right-1/4 text-3xl animate-bounce" style="animation-delay: 2.2s">🎭</div>
+        <!-- Pirate elements -->
+        <div class="absolute top-32 left-1/2 text-4xl animate-bounce" style="animation-delay: 0.8s">☠️</div>
+        <div class="absolute bottom-32 right-1/2 text-3xl animate-bounce" style="animation-delay: 1.8s">⚓</div>
+        <div class="absolute top-1/4 left-1/3 text-4xl animate-bounce" style="animation-delay: 2.8s">🏴‍☠️</div>
+        <div class="absolute bottom-1/4 left-1/2 text-3xl animate-bounce" style="animation-delay: 3.5s">⚔️</div>
+      </div>
+
+      <!-- Main Content -->
+      <main class="py-8 relative z-30">
+        <div class="max-w-2xl mx-auto px-6">
+          <!-- Title Section -->
+          <div class="text-center mb-8">
+            <div class="flex justify-center items-center gap-4 mb-4">
+              <div class="text-5xl animate-bounce">🏰</div>
+              <div class="text-5xl animate-bounce" style="animation-delay: 0.3s">🎭</div>
+              <div class="text-5xl animate-bounce" style="animation-delay: 0.6s">☠️</div>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-orange-400 via-red-500 to-purple-500 bg-clip-text text-transparent animate-pulse font-serif">
+              The Midnight Masquerade
+            </h1>
+            
+            <p class="text-lg md:text-xl mb-4 text-orange-200 font-light">
+              🌙 at Ravencroft Castle 🏰
+            </p>
+            
+            <div class="text-sm md:text-base text-yellow-200 max-w-2xl mx-auto leading-relaxed">
+              <p class="mb-3 text-orange-200 font-medium">
+                🦇 Join us for the most haunting masquerade ball this Halloween! 👻
+              </p>
+              <p class="text-orange-200 font-medium mb-3">
+                🎃 First 5 guests enter free! Additional guests need 25 doubloons each! ☠️
+              </p>
+              <p class="text-yellow-300 text-xs">
+                ⚠️ Payment system under maintenance - check again later! ⚠️
+              </p>
+            </div>
+          </div>
+
+          <div id="success-screen" class="hidden">
+            <!-- Success content will be inserted here -->
+          </div>
+
+          <div id="rsvp-form" class="bg-gradient-to-br from-gray-900 to-purple-900 rounded-3xl shadow-2xl overflow-hidden border-4 border-orange-500">
+            <!-- Form Header -->
+            <div class="bg-gradient-to-r from-purple-800 via-indigo-700 to-black px-8 py-6 text-white">
+              <div class="text-center">
+                <div class="flex justify-center gap-2 text-4xl mb-3">
+                  <span class="animate-bounce">🎭</span>
+                  <span class="animate-bounce" style="animation-delay: 0.2s">☠️</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2 font-serif">Join the Masquerade!</h2>
+                <p class="text-purple-200">Gather your crew for a night of mystery!</p>
+              </div>
+              
+              <!-- Guest Rank -->
+              <div class="mt-4 text-center">
+                <div id="guest-rank" class="inline-flex items-center gap-2 bg-white bg-opacity-20 rounded-full px-4 py-2">
+                  <span id="rank-emoji" class="text-2xl">👤</span>
+                  <span id="rank-text" class="font-bold">Solo Guest 👤</span>
+                </div>
+              </div>
+            </div>
+
+            <form id="halloween-form" class="p-8 space-y-6">
+              <!-- Host Name -->
+              <div>
+                <label class="block text-lg font-bold text-white mb-3 flex items-center gap-2">
+                  <span class="text-2xl">🎭</span>
+                  Captain's Name
+                </label>
+                <input
+                  type="text"
+                  id="host-name"
+                  class="halloween-input w-full"
+                  placeholder="Enter your name, mysterious captain... 🌙"
+                  required
+                />
+              </div>
+
+              <!-- Guest Counter -->
+              <div class="bg-gradient-to-br from-purple-900 to-indigo-900 rounded-2xl p-6 border-2 border-purple-500">
+                <label class="block text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <span class="text-2xl">👥</span>
+                  Crew Size
+                </label>
+                
+                <div class="flex items-center justify-center gap-6">
+                  <button
+                    type="button"
+                    id="decrement-guests"
+                    class="counter-button"
+                  >
+                    -
+                  </button>
+                  
+                  <div class="text-center">
+                    <div id="guest-count" class="text-6xl font-bold text-purple-300 mb-2">1</div>
+                    <div id="guest-label" class="text-sm text-purple-400">Matey</div>
+                  </div>
+                  
+                  <button
+                    type="button"
+                    id="increment-guests"
+                    class="counter-button"
+                  >
+                    +
+                  </button>
+                </div>
+                
+                <div class="mt-4 text-center text-sm text-purple-400">
+                  Maximum 15 crew members per party
+                </div>
+              </div>
+
+              <!-- Cost Info -->
+              <div id="cost-info" class="hidden bg-gradient-to-r from-orange-900 to-red-900 rounded-2xl p-4 border-2 border-orange-500">
+                <div class="flex items-center gap-3">
+                  <span class="text-3xl">💰</span>
+                  <div>
+                    <p class="font-bold text-orange-200 flex items-center gap-2">
+                      💰 Extra crew cost: <span id="total-cost">0</span> doubloons
+                    </p>
+                    <p class="text-orange-300 text-sm">
+                      <span id="extra-count">0</span> extra matey(s) × 25 doubloons each
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Error Display -->
+              <div id="error-display" class="hidden bg-red-900 border-2 border-red-500 rounded-2xl p-4 payment-error">
+                <!-- Errors will be inserted here -->
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                id="submit-btn"
+                class="halloween-button w-full flex items-center justify-between px-8"
+              >
+                <span class="text-2xl">🎃</span>
+                <span class="flex-1">Join the Adventure!</span>
+                <span class="text-2xl">☠️</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="payment-modal hidden">
+      <div class="payment-modal-backdrop"></div>
+      <div class="payment-modal-content">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+            💰 Pay <span id="modal-cost">0</span> Doubloons
+          </h3>
+          <button id="close-modal" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">
+            ✕
+          </button>
+        </div>
+        
+        <div class="bg-red-100 border-2 border-red-400 rounded-lg p-4 mb-4">
+          <div class="flex items-center gap-2">
+            <span class="text-red-600">⚠️</span>
+            <p class="text-red-800 font-bold text-sm">
+              Payment system under maintenance!
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex gap-3">
+          <button id="cancel-payment" class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">
+            Cancel
+          </button>
+          <button id="process-payment" class="flex-1 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors opacity-50 cursor-not-allowed" disabled>
+            Under Maintenance
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load JavaScript modules -->
+    <script src="/js/validation.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

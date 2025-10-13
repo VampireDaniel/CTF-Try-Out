@@ -1,0 +1,170 @@
+.ticket {
+  background: linear-gradient(135deg, #f97316, #ea580c, #dc2626);
+  border: 3px dashed #92400e;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  right: 20px;
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 10px,
+    #92400e 10px,
+    #92400e 15px
+  );
+}
+
+.ticket::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 20px;
+  right: 20px;
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 10px,
+    #92400e 10px,
+    #92400e 15px
+  );
+}
+
+.flag-ticket {
+  background: linear-gradient(135deg, #7c2d12, #991b1b, #7f1d1d);
+  border: 3px solid #451a03;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
+}
+
+.payment-error {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.halloween-input {
+  border: 3px solid #f97316;
+  border-radius: 15px;
+  padding: 12px 16px;
+  font-size: 18px;
+  background: rgba(17, 24, 39, 0.8);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.halloween-input:focus {
+  outline: none;
+  border-color: #ea580c;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.3);
+  transform: scale(1.02);
+  background: rgba(17, 24, 39, 0.9);
+}
+
+.halloween-input::placeholder {
+  color: rgba(156, 163, 175, 0.8);
+}
+
+.halloween-button {
+  background: linear-gradient(135deg, #7c2d12, #dc2626, #ea580c);
+  border: none;
+  border-radius: 15px;
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.halloween-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.halloween-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.counter-button {
+  background: linear-gradient(135deg, #7c2d12, #dc2626);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #991b1b, #ea580c);
+}
+
+.counter-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Payment Modal Styles with maximum z-index */
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.payment-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100000;
+}
+
+.payment-modal-content {
+  position: relative;
+  z-index: 100001;
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 28rem;
+  width: 100%;
+  border: 4px solid #f97316;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.payment-modal.hidden {
+  display: none;
+}
